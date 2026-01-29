@@ -1,65 +1,146 @@
-import Image from "next/image";
+import { GameCard } from "@/components/game-card";
+import { Ghost, Grid3x3, BrainCircuit, Footprints, Bird, Target, Zap, Grid2x2Plus, Boxes, Palette, LayoutGrid, ArrowLeftRight, Rocket, Bomb, Terminal } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <main className="container mx-auto px-4 py-20 min-h-screen flex flex-col items-center justify-center">
+      <div className="text-center mb-16 relative">
+        <h1 className="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan via-neon-purple to-neon-pink animate-gradient mb-6 tracking-tighter">
+          PLAYZONE
+        </h1>
+        <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto font-light">
+          Enter the <span className="text-neon-cyan font-bold">Arcadeverse</span>.
+          Select a game to start playing.
+        </p>
+        <div className="absolute -inset-10 bg-neon-purple/20 blur-[100px] -z-10 rounded-full opacity-50" />
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full max-w-7xl">
+        <GameCard
+          title="Neon Snake"
+          description="Classic slither game with neon aesthetics. Collect nodes and grow."
+          href="/snake"
+          color="lime"
+          icon={<Ghost className="w-8 h-8" />}
+          image="/thumbnails/snake.png"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+        <GameCard
+          title="Cyber Tic-Tac-Toe"
+          description="Play vs Friend or challenge the AI in this strategic duel."
+          href="/tictactoe"
+          color="cyan"
+          icon={<Grid3x3 className="w-8 h-8" />}
+          image="/thumbnails/tictactoe.png"
+        />
+        <GameCard
+          title="Neuro Match"
+          description="Test your memory. Flip cards to find matching pairs."
+          href="/memory"
+          color="pink"
+          icon={<BrainCircuit className="w-8 h-8" />}
+          image="/thumbnails/memory.png"
+        />
+        <GameCard
+          title="Neon Dino"
+          description="Chrome Dino reimagined. Jump over obstacles endlessly."
+          href="/dino"
+          color="lime"
+          icon={<Footprints className="w-8 h-8" />}
+          image="/thumbnails/dino.png"
+        />
+        <GameCard
+          title="Neon Dash"
+          description="Flappy Bird style. Navigate through neon pipes."
+          href="/flappy"
+          color="purple"
+          icon={<Bird className="w-8 h-8" />}
+          image="/thumbnails/flappy.png"
+        />
+        <GameCard
+          title="Whack-a-Mole"
+          description="Click targets as fast as you can before time runs out!"
+          href="/whack"
+          color="cyan"
+          icon={<Target className="w-8 h-8" />}
+          image="/thumbnails/whack.png"
+        />
+        <GameCard
+          title="Reaction Test"
+          description="How fast are your reflexes? Test your reaction time."
+          href="/reaction"
+          color="pink"
+          icon={<Zap className="w-8 h-8" />}
+          image="/thumbnails/reaction.png"
+        />
+        <GameCard
+          title="2048"
+          description="Slide tiles to combine numbers and reach 2048."
+          href="/2048"
+          color="cyan"
+          icon={<Grid2x2Plus className="w-8 h-8" />}
+          image="/thumbnails/2048.png"
+        />
+        <GameCard
+          title="Brick Breaker"
+          description="Classic Breakout. Bounce the ball to break all bricks."
+          href="/breakout"
+          color="purple"
+          icon={<Boxes className="w-8 h-8" />}
+          image="/thumbnails/breakout.png"
+        />
+        <GameCard
+          title="Simon Says"
+          description="Pattern memory challenge. Repeat the color sequence."
+          href="/simon"
+          color="lime"
+          icon={<Palette className="w-8 h-8" />}
+          image="/thumbnails/simon.png"
+        />
+        <GameCard
+          title="Neon Stack"
+          description="Classic block stacking. Clear lines with neon tetrominos."
+          href="/tetris"
+          color="cyan"
+          icon={<LayoutGrid className="w-8 h-8" />}
+          image="/thumbnails/tetris.png"
+        />
+        <GameCard
+          title="Cyber Paddle"
+          description="The original arcade duel. Defeat the AI."
+          href="/pong"
+          color="pink"
+          icon={<ArrowLeftRight className="w-8 h-8" />}
+          image="/thumbnails/pong.png"
+        />
+        <GameCard
+          title="Galactic Defense"
+          description="Defend Earth from the neon alien invasion."
+          href="/invaders"
+          color="purple"
+          icon={<Rocket className="w-8 h-8" />}
+          image="/thumbnails/invaders.png"
+        />
+        <GameCard
+          title="Data Sweeper"
+          description="Hack the grid. Avoid firewalls and clear data."
+          href="/minesweeper"
+          color="lime"
+          icon={<Bomb className="w-8 h-8" />}
+          image="/thumbnails/minesweeper.png"
+        />
+        <GameCard
+          title="Hacker Run"
+          description="Type fast to bypass security and stop the breach."
+          href="/typing"
+          color="cyan"
+          icon={<Terminal className="w-8 h-8" />}
+          image="/thumbnails/typing.png"
+        />
+      </div>
+
+      <footer className="mt-20 text-gray-500 text-sm">
+        <p>&copy; 2026 PlayZone Arcade. Powered by Next.js</p>
+      </footer>
+    </main>
   );
 }
